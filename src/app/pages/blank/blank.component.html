@@ -3,4 +3,21 @@
 
 <pre>Type: {{type}}
 Name: {{name}}
+Page: {{page}}
 </pre>
+
+[
+<span *ngFor="let i of [1,2,3,4,5,6,7]">
+  <button type="button" (click)="goPage(i)">{{i}}</button>
+</span>
+]
+
+<hr>
+
+[
+<span *ngFor="let i of [1,2,3,4,5,6,7]">
+  <a [routerLink]="['/pages/blank']"
+     [queryParams]="{ page: i}">{{i}}</a>
+  |
+</span>
+]

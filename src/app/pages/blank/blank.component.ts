@@ -9,6 +9,7 @@ export class BlankComponent implements OnInit {
 
   name = '';
   type = '';
+  page = 1;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -25,6 +26,20 @@ export class BlankComponent implements OnInit {
       this.name = params.get('name');
     });
 
+    this.route.queryParamMap.subscribe(params => {
+      this.page = +params.get('page');
+    });
+
+  }
+
+  goPage(pageNo: number) {
+    // this.router.navigateByUrl('/pages/blank?page=' + pageNo);
+
+    this.router.navigate(['/pages/blank'], {
+      queryParams: {
+        page: pageNo
+      }
+    });
   }
 
 }
