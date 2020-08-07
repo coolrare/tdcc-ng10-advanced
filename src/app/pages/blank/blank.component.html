@@ -16,8 +16,8 @@ Page: {{page}}
 
 |
 <span *ngFor="let i of [1,2,3,4,5,6,7]">
-  <a [routerLink]="['/pages/blank']"
-    queryParamsHandling="merge"
+  <a [routerLink]="['/pages/blank', type]"
+     queryParamsHandling="merge"
      [queryParams]="{ page: i}">{{i}}</a>
   |
 </span>

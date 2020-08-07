@@ -33,9 +33,9 @@ export class BlankComponent implements OnInit {
   }
 
   goPage(pageNo: number) {
-    // this.router.navigateByUrl('/pages/blank?page=' + pageNo);
+    // this.router.navigateByUrl('/pages/blank/' + this.type + '?page=' + pageNo + '&name=' + this.name);
 
-    this.router.navigate(['/pages/blank'], {
+    this.router.navigate(['/pages/blank', this.type], {
       queryParamsHandling: 'merge',
       queryParams: {
         page: pageNo,
