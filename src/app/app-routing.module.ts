@@ -5,6 +5,7 @@ import { Page2Component } from './page2/page2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TablesComponent } from './tables/tables.component';
+import { BlankComponent } from './pages/blank/blank.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
@@ -12,6 +13,13 @@ const routes: Routes = [
   { path: 'page1', component: Page1Component },
   { path: 'page2', component: Page2Component },
   { path: 'dashboard', component: DashboardComponent },
+  // { path: 'pages/blank', component: BlankComponent },
+  {
+    path: 'pages',
+    children: [
+      { path: 'blank', component: BlankComponent }
+    ]
+  },
   { path: '**', component: NotFoundComponent },
 ];
 
