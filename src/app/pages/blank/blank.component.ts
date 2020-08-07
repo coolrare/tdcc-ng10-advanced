@@ -36,9 +36,10 @@ export class BlankComponent implements OnInit {
     // this.router.navigateByUrl('/pages/blank?page=' + pageNo);
 
     this.router.navigate(['/pages/blank'], {
+      queryParamsHandling: 'merge',
       queryParams: {
-        page: pageNo
-      }
+        page: pageNo,
+      },
     });
   }
 
