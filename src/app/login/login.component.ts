@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   templateUrl: './login.component.html',
@@ -20,6 +21,16 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     document.body.className = '';
+  }
+
+  doSubmit(form: NgForm) {
+    if (form.valid) {
+      // TODO: this.http.post('/save', this.data).subscribe();
+      alert('表單送出成功');
+    }
+    else {
+      alert('表單有問題，無法送出');
+    }
   }
 
 }
