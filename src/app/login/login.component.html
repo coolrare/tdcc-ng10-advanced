@@ -16,10 +16,14 @@
                   <div class="form-group">
                     <input type="email" class="form-control form-control-user"
                            [(ngModel)]="data.email" name="email" #tEmail="ngModel"
-                           required email
+                           required
+                           email
+                           minlength="5"
+                           maxlength="100"
                            aria-describedby="emailHelp" placeholder="Enter Email Address...">
-                    <span *ngIf="tEmail.invalid && tEmail.errors.required">請輸入 E-mail 地址</span>
-                    <span *ngIf="tEmail.invalid && tEmail.errors.email">請輸入合法的 E-mail 地址</span>
+                    <p *ngIf="tEmail.invalid && tEmail.errors.required">請輸入 E-mail 地址</p>
+                    <p *ngIf="tEmail.invalid && tEmail.errors.email">請輸入合法的 E-mail 地址</p>
+                    <p *ngIf="tEmail.invalid && tEmail.errors.minlength">請輸入至少 {{tEmail.errors.minlength.requiredLength}} 個以上個字元</p>
 <pre>tEmail.value = {{tEmail.value}}
 tEmail.pristine = {{tEmail.pristine}}
 tEmail.dirty = {{tEmail.dirty}}
@@ -35,6 +39,9 @@ tEmail.errors = {{tEmail.errors | json}}
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user"
                            [(ngModel)]="data.password" name="password" #tPassword="ngModel"
+                           required
+                           minlength="5"
+                           maxlength="30"
                            placeholder="Password">
                   </div>
                   <div class="form-group">
