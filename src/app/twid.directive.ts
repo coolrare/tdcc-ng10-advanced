@@ -12,6 +12,7 @@ import {
 } from 'taiwan-id-validator2';
 
 @Directive({
+  // tslint:disable-next-line: directive-selector
   selector: '[twid][ngModel]',
   providers: [
     { provide: NG_VALIDATORS, useExisting: TwidValidator, multi: true }
