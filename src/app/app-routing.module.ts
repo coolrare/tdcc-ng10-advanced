@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
@@ -14,8 +15,8 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       { path: 'tables', component: TablesComponent },
-      { path: 'page1', component: Page1Component },
-      { path: 'page2', component: Page2Component },
+      { path: 'page1', component: Page1Component, canActivate: [AuthGuard] },
+      { path: 'page2', component: Page2Component, canActivate: [AuthGuard] },
       { path: 'dashboard', component: DashboardComponent },
       // { path: 'pages/blank', component: BlankComponent },
       // {
