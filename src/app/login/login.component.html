@@ -17,10 +17,11 @@
                     <input type="email" class="form-control form-control-user"
                            [(ngModel)]="data.email" name="email" #tEmail="ngModel"
                            required
-                           email
-                           minlength="5"
-                           maxlength="100"
+                           twid
+                           minlength="10"
+                           maxlength="10"
                            aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                    <p *ngIf="tEmail.invalid && tEmail.errors.twid">請輸入合法的身份證字號</p>
                     <p *ngIf="tEmail.invalid && tEmail.errors.required">請輸入 E-mail 地址</p>
                     <p *ngIf="tEmail.invalid && tEmail.errors.email">請輸入合法的 E-mail 地址</p>
                     <p *ngIf="tEmail.invalid && tEmail.errors.minlength">請輸入至少 {{tEmail.errors.minlength.requiredLength}} 個以上個字元</p>

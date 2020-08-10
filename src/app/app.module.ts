@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TablesComponent } from './tables/tables.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
+import { TwidValidator } from './twid.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LayoutComponent } from './layout/layout.component';
     NotFoundComponent,
     TablesComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
+    TwidValidator
   ],
   imports: [
     BrowserModule,
