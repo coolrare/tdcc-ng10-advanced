@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   templateUrl: './login2.component.html',
@@ -38,18 +38,31 @@ export class Login2Component implements OnInit, OnDestroy {
         updateOn: 'blur'
       }),
 
-      group1: this.fb.group({
-        password: this.fb.control('123123', {
-          validators: [Validators.required, Validators.minLength(3)]
+      pwds: this.fb.array([
+        this.fb.group({
+          password: this.fb.control('123123', {
+            validators: [Validators.required, Validators.minLength(3)]
+          }),
+          rememberMe: true
         }),
-        rememberMe: true
-      })
+        this.fb.group({
+          password: this.fb.control('123', {
+            validators: [Validators.required, Validators.minLength(3)]
+          }),
+          rememberMe: false
+        })
+      ])
+
 
     });
   }
 
   ngOnDestroy(): void {
     document.body.className = '';
+  }
+
+  fa(name: string) {
+    return this.form.get(name) as FormArray;
   }
 
 }
