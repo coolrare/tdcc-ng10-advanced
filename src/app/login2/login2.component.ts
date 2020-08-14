@@ -37,10 +37,14 @@ export class Login2Component implements OnInit, OnDestroy {
         validators: [Validators.required, Validators.email],
         updateOn: 'blur'
       }),
-      password: this.fb.control('123123', {
-        validators: [Validators.required, Validators.minLength(3)]
-      }),
-      rememberMe: true
+
+      group1: this.fb.group({
+        password: this.fb.control('123123', {
+          validators: [Validators.required, Validators.minLength(3)]
+        }),
+        rememberMe: true
+      })
+
     });
   }
 
