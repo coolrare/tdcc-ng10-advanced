@@ -65,4 +65,13 @@ export class Login2Component implements OnInit, OnDestroy {
     return this.form.get(name) as FormArray;
   }
 
+  addNewPwd() {
+    this.fa('pwds').push(this.fb.group({
+      password: this.fb.control('', {
+        validators: [Validators.required, Validators.minLength(3)]
+      }),
+      rememberMe: true
+    }));
+  }
+
 }
