@@ -59,6 +59,8 @@ export class Login2Component implements OnInit, OnDestroy {
 
   resetForm() {
 
+    this.fa('pwds').clear();
+
     const len = this.data.pwds.length;
     for (let index = 0; index < len; index++) {
       this.fa('pwds').push(this.fb.group({
